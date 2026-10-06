@@ -36,4 +36,18 @@ public class LoginTest extends BaseTest {
 
         Assert.assertTrue(errorMessage.contains("Username and password do not match"));
     }
+    
+    @Test
+    public void testEmptyLogin() {
+
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.clickLogin();
+
+        String errorMessage = loginPage.getErrorMessage();
+
+        Assert.assertTrue(
+            errorMessage.contains("Username is required")
+        );
+    }
 }
