@@ -24,4 +24,16 @@ public class LoginTest extends BaseTest {
                 "Swag Labs"
         );
     }
+    
+    @Test
+    public void testInvalidLogin() {
+
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.login("wrong_user", "wrong_password");
+
+        String errorMessage = loginPage.getErrorMessage();
+
+        Assert.assertTrue(errorMessage.contains("Username and password do not match"));
+    }
 }
