@@ -21,8 +21,7 @@ public class LoginTest extends BaseTest {
 
         Assert.assertEquals(
                 driver.getTitle(),
-                "Swag Labs",
-                "Login was not successful"
+                "Swag Labs"
         );
     }
 }

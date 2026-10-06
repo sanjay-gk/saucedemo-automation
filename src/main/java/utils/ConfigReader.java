@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class ConfigReader {
 
-    private static Properties properties = new Properties();
+    static Properties properties = new Properties();
 
     static {
         try {
@@ -17,7 +17,7 @@ public class ConfigReader {
             file.close();
 
         } catch (IOException e) {
-            throw new RuntimeException("Unable to load config.properties", e);
+            e.printStackTrace();
         }
     }
 

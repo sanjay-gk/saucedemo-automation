@@ -7,30 +7,29 @@ import base.BasePage;
 
 public class LoginPage extends BasePage {
 
-    private By usernameTextBox = By.id("user-name");
-    private By passwordTextBox = By.id("password");
-    private By loginButton = By.id("login-button");
+    By username = By.id("user-name");
+    By password = By.id("password");
+    By loginButton = By.id("login-button");
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
-    public void enterUsername(String username) {
-        type(usernameTextBox, username);
+    public void enterUsername(String usernameText) {
+        driver.findElement(username).sendKeys(usernameText);
     }
 
-    public void enterPassword(String password) {
-        type(passwordTextBox, password);
+    public void enterPassword(String passwordText) {
+        driver.findElement(password).sendKeys(passwordText);
     }
 
     public void clickLogin() {
-        click(loginButton);
+        driver.findElement(loginButton).click();
     }
 
-    public void login(String username, String password) {
-
-        enterUsername(username);
-        enterPassword(password);
+    public void login(String usernameText, String passwordText) {
+        enterUsername(usernameText);
+        enterPassword(passwordText);
         clickLogin();
     }
 }
