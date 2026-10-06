@@ -1,0 +1,23 @@
+# Maven
+target/
+
+# Test reports
+test-output/
+
+# Generated test sources
+generated-test-sources/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Java
+*.class
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
