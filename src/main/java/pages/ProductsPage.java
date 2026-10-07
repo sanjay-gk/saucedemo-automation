@@ -18,7 +18,9 @@ public class ProductsPage extends BasePage {
     By productPrices = By.className("inventory_item_price");
     By addToCartButton = By.id("add-to-cart-sauce-labs-backpack");
     By cartCount = By.className("shopping_cart_badge");
-
+    By menuButton = By.id("react-burger-menu-btn");
+    By logoutButton = By.id("logout_sidebar_link");
+    
     public ProductsPage(WebDriver driver) {
         super(driver);
     }
@@ -51,5 +53,18 @@ public class ProductsPage extends BasePage {
 
     public String getCartCount() {
         return driver.findElement(cartCount).getText();
+    }
+    public void logout() {
+
+        WebDriverWait wait =
+                new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        wait.until(
+                ExpectedConditions.elementToBeClickable(menuButton)
+        ).click();
+
+        wait.until(
+                ExpectedConditions.elementToBeClickable(logoutButton)
+        ).click();
     }
 }
