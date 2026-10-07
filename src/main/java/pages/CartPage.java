@@ -33,16 +33,15 @@ public class CartPage extends BasePage {
 	}
 
 	public void removeProduct() {
+	    WebDriverWait wait =
+	            new WebDriverWait(driver, Duration.ofSeconds(10));
 
-		try {
-			driver.findElement(removeButton).click();
-
-		} catch (org.openqa.selenium.StaleElementReferenceException e) {
-			driver.findElement(removeButton).click();
-		}
+	    wait.until(
+	            ExpectedConditions.elementToBeClickable(removeButton)
+	    ).click();
 	}
 
 	public boolean isProductDisplayed() {
-		return driver.findElements(cartItem).size() > 0;
+	    return driver.findElements(cartItem).size() > 0;
 	}
 }

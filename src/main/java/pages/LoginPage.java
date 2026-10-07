@@ -1,7 +1,11 @@
 package pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.BasePage;
 
@@ -27,7 +31,7 @@ public class LoginPage extends BasePage {
     public void clickLogin() {
         driver.findElement(loginButton).click();
     }
-    
+
     public String getErrorMessage() {
         return driver.findElement(errorMessage).getText();
     }
@@ -37,7 +41,13 @@ public class LoginPage extends BasePage {
         enterPassword(passwordText);
         clickLogin();
     }
+
     public boolean isLoginPageDisplayed() {
-        return driver.findElement(username).isDisplayed();
+        WebDriverWait wait =
+                new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        return wait.until(
+                ExpectedConditions.visibilityOfElementLocated(username)
+        ).isDisplayed();
     }
 }
