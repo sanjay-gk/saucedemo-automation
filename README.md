@@ -237,6 +237,160 @@ Provides project documentation, setup instructions, framework architecture, test
 - ConfigReader – Reads and manages external configuration values from the config.properties file.
 - Git – Used for source code version control and tracking project changes.
 - GitHub – Used for repository hosting, version management, and project collaboration.
+
+
+## ⚙️ Setup and Test Execution
+
+### Prerequisites
+
+Make sure the following are installed:
+
+- Java 17 or higher
+- Maven 3.8 or higher
+- Google Chrome
+- Git
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/sanjay-gk/saucedemo-automation.git
+cd saucedemo-automation
+```
+
+### Verify Java and Maven
+
+Check that Java is installed correctly:
+
+```bash
+java -version
+```
+
+Check that Maven is installed correctly:
+
+```bash
+mvn -version
+```
+
+The project is configured to use Java 17 as the minimum Java version.
+
+### Configuration
+
+The SauceDemo application URL and login credentials are stored in:
+
+```text
+src/main/resources/config.properties
+```
+
+The configuration contains:
+
+```properties
+url=https://www.saucedemo.com
+username=standard_user
+password=secret_sauce
+```
+
+Keeping these values in a separate configuration file prevents them from being hard-coded inside the test classes.
+
+### Run All Tests
+
+To execute the complete TestNG test suite, run:
+
+```bash
+mvn clean test
+```
+
+This command will:
+
+1. Clean previously generated build files.
+2. Compile the Java source code.
+3. Start the Chrome browser using Selenium WebDriver.
+4. Execute all TestNG test cases.
+5. Generate the test execution reports.
+
+### Run Tests Without Cleaning
+
+You can also run the tests directly using:
+
+```bash
+mvn test
+```
+
+This executes the test suite without first deleting the existing `target` directory.
+
+### Expected Test Result
+
+A successful execution should display:
+
+```text
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0
+BUILD SUCCESS
+```
+
+The project currently contains 8 automated test cases covering:
+
+- Valid login
+- Invalid login
+- Empty login fields
+- Product sorting by price
+- Add product to cart
+- Remove product from cart
+- Complete checkout
+- Logout
+
+### Test Reports
+
+After executing the tests, Maven Surefire generates test results inside:
+
+```text
+target/surefire-reports/
+```
+
+The directory contains the generated TestNG/Maven test execution reports.
+
+### Running the Project from Eclipse
+
+The tests can also be executed directly from Eclipse.
+
+1. Import the project as an existing Maven project.
+2. Wait for Maven dependencies to download.
+3. Right-click the test class or test suite.
+4. Select:
+
+```text
+Run As → TestNG Test
+```
+
+The test classes can be executed individually or as a complete TestNG suite.
+
+### Browser Requirements
+
+The tests use Google Chrome with Selenium WebDriver.
+
+Make sure Google Chrome is installed on the system before running the tests.
+
+Selenium Manager handles the browser driver setup automatically when the tests are executed.
+
+### Troubleshooting
+
+If Maven is not recognized, verify that Maven is installed and added to the system PATH:
+
+```bash
+mvn -version
+```
+
+If Java is not recognized, verify the Java installation:
+
+```bash
+java -version
+```
+
+If the tests fail because of a browser or driver issue, make sure Google Chrome is installed and up to date.
+
+For a clean re-run, execute:
+
+```bash
+mvn clean test
+```
 ## 🧪 Test Execution Results
 
 | Test Module | Test Class | Status |
