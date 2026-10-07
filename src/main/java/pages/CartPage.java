@@ -2,34 +2,47 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import java.time.Duration;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.BasePage;
 
 public class CartPage extends BasePage {
 
-    By cartButton = By.className("shopping_cart_link");
-    By removeButton = By.id("remove-sauce-labs-backpack");
-    By cartItem = By.className("cart_item");
+	By cartButton = By.className("shopping_cart_link");
+	By removeButton = By.id("remove-sauce-labs-backpack");
+	By cartItem = By.className("cart_item");
 
-    public CartPage(WebDriver driver) {
-        super(driver);
-    }
+	public CartPage(WebDriver driver) {
+		super(driver);
+	}
 
-    public void openCart() {
-        driver.findElement(cartButton).click();
-    }
+	public void openCart() {
 
-    public void removeProduct() {
+	    WebDriverWait wait =
+	            new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        try {
-            driver.findElement(removeButton).click();
+	    wait.until(
+	            ExpectedConditions.elementToBeClickable(cartButton)
+	    ).click();
 
-        } catch (org.openqa.selenium.StaleElementReferenceException e) {
-            driver.findElement(removeButton).click();
-        }
-    }
+	    wait.until(
+	            ExpectedConditions.urlContains("cart.html")
+	    );
+	}
 
-    public boolean isProductDisplayed() {
-        return driver.findElements(cartItem).size() > 0;
-    }
+	public void removeProduct() {
+
+		try {
+			driver.findElement(removeButton).click();
+
+		} catch (org.openqa.selenium.StaleElementReferenceException e) {
+			driver.findElement(removeButton).click();
+		}
+	}
+
+	public boolean isProductDisplayed() {
+		return driver.findElements(cartItem).size() > 0;
+	}
 }
