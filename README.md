@@ -246,20 +246,20 @@ Provides project documentation, setup instructions, framework architecture, test
 | 🛒 Cart | `CartTest.java` | ✅ Passed |
 | 💳 Checkout | `CheckoutTest.java` | ✅ Passed |
 
-✅ Result
+### 📸 Test Execution Evidence
 
-The automation suite successfully executed all defined test scenarios with 100% pass rate, validating the core end-to-end workflows of the SauceDemo application.
+#### Eclipse Console
 
-📸 Test Execution Evidence
+![Eclipse Console](https://github.com/user-attachments/assets/6fbf6e15-860e-4774-af82-c987f53f0912)
 
-Eclipse Console
+#### Maven Test Execution
 
-https://github.com/user-attachments/assets/6fbf6e15-860e-4774-af82-c987f53f0912
+![Maven Test Execution](https://github.com/user-attachments/assets/06daceb6-370d-4cd7-ace2-165cf326869d)
 
-Maven Test Execution
+#### SauceDemo Application
 
-https://github.com/user-attachments/assets/06daceb6-370d-4cd7-ace2-165cf326869d
+![SauceDemo Application](https://github.com/user-attachments/assets/a3d6730e-286f-45b4-84f1-822bcc46b391)
 
-SauceDemo Application
+### ✅ Result
 
-https://github.com/user-attachments/assets/a3d6730e-286f-45b4-84f1-822bcc46b391
+The automation suite successfully executed all defined test scenarios with a **100% pass rate**, validating the core end-to-end workflows of the SauceDemo application.
