@@ -13,6 +13,8 @@ public class ProductsPage extends BasePage {
 
     By sortDropdown = By.className("product_sort_container");
     By productPrices = By.className("inventory_item_price");
+    By addToCartButton = By.id("add-to-cart-sauce-labs-backpack");
+    By cartCount = By.className("shopping_cart_badge");
 
     public ProductsPage(WebDriver driver) {
         super(driver);
@@ -32,5 +34,13 @@ public class ProductsPage extends BasePage {
         String priceText = prices.get(0).getText();
 
         return Double.parseDouble(priceText.replace("$", ""));
+    }
+
+    public void addProductToCart() {
+        driver.findElement(addToCartButton).click();
+    }
+
+    public String getCartCount() {
+        return driver.findElement(cartCount).getText();
     }
 }
