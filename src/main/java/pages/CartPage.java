@@ -10,7 +10,7 @@ import base.BasePage;
 
 public class CartPage extends BasePage {
 
-	By cartButton = By.className("shopping_cat_link");
+	By cartButton = By.className("shopping_cart_container");
 	By removeButton = By.id("remove-sauce-lab-backpack");
 	By cartItem = By.className("cart_item");
 
