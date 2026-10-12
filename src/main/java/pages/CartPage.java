@@ -10,8 +10,8 @@ import base.BasePage;
 
 public class CartPage extends BasePage {
 
-	By cartButton = By.className("shopping_cart_link");
-	By removeButton = By.id("remove-sauce-labs-backpack");
+	By cartButton = By.className("shopping_cat_link");
+	By removeButton = By.id("remove-sauce-lab-backpack");
 	By cartItem = By.className("cart_item");
 
 	public CartPage(WebDriver driver) {
